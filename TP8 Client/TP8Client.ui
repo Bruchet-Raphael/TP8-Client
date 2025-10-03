@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>250</width>
+    <width>510</width>
     <height>228</height>
    </rect>
   </property>
@@ -76,8 +76,8 @@
    <widget class="QPushButton" name="tempEnC">
     <property name="geometry">
      <rect>
-      <x>40</x>
-      <y>80</y>
+      <x>260</x>
+      <y>10</y>
       <width>80</width>
       <height>21</height>
      </rect>
@@ -89,8 +89,8 @@
    <widget class="QPushButton" name="tempEnF">
     <property name="geometry">
      <rect>
-      <x>150</x>
-      <y>80</y>
+      <x>260</x>
+      <y>40</y>
       <width>80</width>
       <height>21</height>
      </rect>
@@ -102,8 +102,8 @@
    <widget class="QLabel" name="label_3">
     <property name="geometry">
      <rect>
-      <x>40</x>
-      <y>120</y>
+      <x>350</x>
+      <y>10</y>
       <width>71</width>
       <height>16</height>
      </rect>
@@ -115,8 +115,8 @@
    <widget class="QLabel" name="tempOut">
     <property name="geometry">
      <rect>
-      <x>110</x>
-      <y>120</y>
+      <x>420</x>
+      <y>10</y>
       <width>71</width>
       <height>16</height>
      </rect>
@@ -128,8 +128,8 @@
    <widget class="QLabel" name="label_4">
     <property name="geometry">
      <rect>
-      <x>40</x>
-      <y>150</y>
+      <x>350</x>
+      <y>40</y>
       <width>71</width>
       <height>16</height>
      </rect>
@@ -141,8 +141,8 @@
    <widget class="QLabel" name="humOut">
     <property name="geometry">
      <rect>
-      <x>110</x>
-      <y>150</y>
+      <x>420</x>
+      <y>40</y>
       <width>71</width>
       <height>16</height>
      </rect>
@@ -151,13 +151,52 @@
      <string/>
     </property>
    </widget>
+   <widget class="QLabel" name="label_5">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>80</y>
+      <width>121</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Status de la connexion :</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="connexionStat">
+    <property name="geometry">
+     <rect>
+      <x>130</x>
+      <y>80</y>
+      <width>47</width>
+      <height>13</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="disconnectButton">
+    <property name="geometry">
+     <rect>
+      <x>160</x>
+      <y>40</y>
+      <width>80</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Deconexion</string>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>250</width>
+     <width>510</width>
      <height>20</height>
     </rect>
    </property>

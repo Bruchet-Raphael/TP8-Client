@@ -2,6 +2,7 @@
 
 #include <QtWidgets/QMainWindow>
 #include "ui_TP8Client.h"
+#include <qtcpsocket.h>
 
 class TP8Client : public QMainWindow
 {
@@ -13,5 +14,11 @@ public:
 
 private:
     Ui::TP8ClientClass ui;
+    QTcpSocket* socket;
+private slots:
+    void onConnectButtonClicked();
+    void onSocketConnected();
+    void onSocketDisconnected();
+    void onSocketError(QAbstractSocket::SocketError socketError);
 };
 
