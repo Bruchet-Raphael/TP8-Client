@@ -17,6 +17,7 @@ private:
     QTcpSocket* socket;
 private slots:
     void onConnectButtonClicked();
+    void onDisconnectButtonClicked();
     void onSocketConnected();
     void onSocketDisconnected();
     void onSocketError(QAbstractSocket::SocketError socketError);

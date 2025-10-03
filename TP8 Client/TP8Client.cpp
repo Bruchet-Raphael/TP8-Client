@@ -6,6 +6,7 @@ TP8Client::TP8Client(QWidget *parent)
     ui.setupUi(this);
     socket = new QTcpSocket(this);
     connect(ui.connectButton, &QPushButton::clicked, this, &TP8Client::onConnectButtonClicked);
+    connect(ui.disconnectButton, &QPushButton::clicked, this, &TP8Client::onDisconnectButtonClicked);
     QObject::connect(socket, SIGNAL(connected()), this, SLOT(onSocketConnected()));
     QObject::connect(socket, SIGNAL(disconnected()), this, SLOT(onSocketDisconnected()));
     QObject::connect(socket, SIGNAL(errorOccurred(QAbstractSocket::SocketError)),this, SLOT(onSocketError(QAbstractSocket::SocketError)));
@@ -27,6 +28,17 @@ void TP8Client::onConnectButtonClicked()
     }
 }
 
+void TP8Client::onDisconnectButtonClicked()
+{
+    if (socket->state() == QAbstractSocket::ConnectedState) {
+        socket->disconnectFromHost();
+        ui.connexionStat->setText("Deconnexion");
+    }
+    else {
+        ui.connexionStat->setText("Pas de connexion active.");
+    }
+}
+
 void TP8Client::onSocketConnected()
 {
     ui.connexionStat->setText("Connecte");
@@ -34,7 +46,7 @@ void TP8Client::onSocketConnected()
 
 void TP8Client::onSocketDisconnected()
 {
-    ui.connexionStat->setText("Déconnecte.");
+    ui.connexionStat->setText("Deconnecte.");
 }
 
 void TP8Client::onSocketError(QAbstractSocket::SocketError socketError)
