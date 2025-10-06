@@ -7,6 +7,9 @@ TP8Client::TP8Client(QWidget *parent)
     socket = new QTcpSocket(this);
     connect(ui.connectButton, &QPushButton::clicked, this, &TP8Client::onConnectButtonClicked);
     connect(ui.disconnectButton, &QPushButton::clicked, this, &TP8Client::onDisconnectButtonClicked);
+    connect(ui.tempEnC, &QPushButton::clicked, this, &TP8Client::onTempEnCButtonClicked);
+    connect(ui.tempEnF, &QPushButton::clicked, this, &TP8Client::onTempEnFButtonClicked);
+    connect(ui.humButton, &QPushButton::clicked, this, &TP8Client::onHumButtonClicked);
     QObject::connect(socket, SIGNAL(connected()), this, SLOT(onSocketConnected()));
     QObject::connect(socket, SIGNAL(disconnected()), this, SLOT(onSocketDisconnected()));
     QObject::connect(socket, SIGNAL(errorOccurred(QAbstractSocket::SocketError)),this, SLOT(onSocketError(QAbstractSocket::SocketError)));
@@ -52,4 +55,25 @@ void TP8Client::onSocketDisconnected()
 void TP8Client::onSocketError(QAbstractSocket::SocketError socketError)
 {
     ui.connexionStat->setText("Erreur : " + socket->errorString());
+}
+
+void TP8Client::onTempEnCButtonClicked()
+{
+    ui.temp->setText("Temperature : en attente");
+    QString message = "Tdxx?";
+    socket->write(message.toUtf8());
+}
+
+void TP8Client::onTempEnFButtonClicked()
+{
+    ui.temp->setText("Temperature : en attente");
+    QString message = "Tfxx?";
+    socket->write(message.toUtf8());
+}
+
+void TP8Client::onHumButtonClicked()
+{
+    ui.hum->setText("Humidite : en attente");
+    QString message = "Hrxx?";
+    socket->write(message.toUtf8());
 }

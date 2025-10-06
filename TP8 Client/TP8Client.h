@@ -16,10 +16,15 @@ private:
     Ui::TP8ClientClass ui;
     QTcpSocket* socket;
 private slots:
+    //gestion connexion et deconnexion
     void onConnectButtonClicked();
     void onDisconnectButtonClicked();
     void onSocketConnected();
     void onSocketDisconnected();
     void onSocketError(QAbstractSocket::SocketError socketError);
+    //demmande de la t'emperature et de l'humidité
+    void onTempEnCButtonClicked();
+    void onTempEnFButtonClicked();
+    void onHumButtonClicked();
 };
 

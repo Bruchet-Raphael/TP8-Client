@@ -99,7 +99,7 @@
      <string>°F</string>
     </property>
    </widget>
-   <widget class="QLabel" name="label_3">
+   <widget class="QLabel" name="temp">
     <property name="geometry">
      <rect>
       <x>350</x>
@@ -125,7 +125,7 @@
      <string/>
     </property>
    </widget>
-   <widget class="QLabel" name="label_4">
+   <widget class="QLabel" name="hum">
     <property name="geometry">
      <rect>
       <x>350</x>
@@ -174,7 +174,7 @@
      </rect>
     </property>
     <property name="text">
-     <string/>
+     <string>Pas de connexion active.</string>
     </property>
    </widget>
    <widget class="QPushButton" name="disconnectButton">
@@ -188,6 +188,19 @@
     </property>
     <property name="text">
      <string>Deconexion</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="humButton">
+    <property name="geometry">
+     <rect>
+      <x>260</x>
+      <y>70</y>
+      <width>80</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>H%</string>
     </property>
    </widget>
   </widget>
