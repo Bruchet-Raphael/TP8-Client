@@ -26,5 +26,6 @@ private slots:
     void onTempEnCButtonClicked();
     void onTempEnFButtonClicked();
     void onHumButtonClicked();
+    void onSocketReadyRead();
 };
 

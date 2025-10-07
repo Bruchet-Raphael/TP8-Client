@@ -10,6 +10,7 @@ TP8Client::TP8Client(QWidget *parent)
     connect(ui.tempEnC, &QPushButton::clicked, this, &TP8Client::onTempEnCButtonClicked);
     connect(ui.tempEnF, &QPushButton::clicked, this, &TP8Client::onTempEnFButtonClicked);
     connect(ui.humButton, &QPushButton::clicked, this, &TP8Client::onHumButtonClicked);
+    connect(socket, &QTcpSocket::readyRead, this, &TP8Client::onSocketReadyRead);
     QObject::connect(socket, SIGNAL(connected()), this, SLOT(onSocketConnected()));
     QObject::connect(socket, SIGNAL(disconnected()), this, SLOT(onSocketDisconnected()));
     QObject::connect(socket, SIGNAL(errorOccurred(QAbstractSocket::SocketError)),this, SLOT(onSocketError(QAbstractSocket::SocketError)));
@@ -68,7 +69,7 @@ void TP8Client::onTempEnFButtonClicked()
 {
     ui.temp->setText("Temperature : en attente");
     QString message = "Tfxx?";
-    socket->write(message.toUtf8());
+    socket->write(message.toUtf8());   
 }
 
 void TP8Client::onHumButtonClicked()
@@ -76,4 +77,26 @@ void TP8Client::onHumButtonClicked()
     ui.hum->setText("Humidite : en attente");
     QString message = "Hrxx?";
     socket->write(message.toUtf8());
+}
+
+void TP8Client::onSocketReadyRead()
+{
+    QByteArray data = socket->readAll();
+    QString message = QString::fromUtf8(data).trimmed();
+
+    if (message.startsWith("Tdxx")) {
+        QString valeur = message.mid(5);
+        ui.temp->setText("Temperature : " + valeur + " C");
+    }
+    else if (message.startsWith("Tfxx")) {
+        QString valeur = message.mid(5);
+        ui.temp->setText("Temperature : " + valeur + " F");
+    }
+    else if (message.startsWith("Hrxx")) {
+        QString valeur = message.mid(5);
+        ui.hum->setText("Humidite : " + valeur + " %");
+    }
+    else {
+        ui.connexionStat->setText("Message reçu : " + message);
+    }
 }
