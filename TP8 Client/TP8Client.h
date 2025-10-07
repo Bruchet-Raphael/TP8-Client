@@ -21,7 +21,7 @@ private slots:
     void onDisconnectButtonClicked();
     void onSocketConnected();
     void onSocketDisconnected();
-    void onSocketError(QAbstractSocket::SocketError socketError);
+    void onSocketError(QAbstractSocket::SocketError socketError); // Permet de gerer les erreurs
     //demmande de la t'emperature et de l'humidité
     void onTempEnCButtonClicked();
     void onTempEnFButtonClicked();
