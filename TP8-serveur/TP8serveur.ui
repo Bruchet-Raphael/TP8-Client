@@ -7,60 +7,24 @@
     <x>0</x>
     <y>0</y>
     <width>447</width>
-    <height>212</height>
+    <height>163</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>TP8serveur</string>
   </property>
   <widget class="QWidget" name="centralWidget">
-   <widget class="QPushButton" name="startButton">
-    <property name="geometry">
-     <rect>
-      <x>200</x>
-      <y>30</y>
-      <width>80</width>
-      <height>21</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Start</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label">
-    <property name="geometry">
-     <rect>
-      <x>30</x>
-      <y>30</y>
-      <width>41</width>
-      <height>21</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Port :</string>
-    </property>
-   </widget>
    <widget class="QLabel" name="serverStat">
     <property name="geometry">
      <rect>
-      <x>30</x>
-      <y>90</y>
+      <x>20</x>
+      <y>50</y>
       <width>381</width>
       <height>16</height>
      </rect>
     </property>
     <property name="text">
-     <string>Etat du serveur : Eteint</string>
-    </property>
-   </widget>
-   <widget class="QLineEdit" name="port">
-    <property name="geometry">
-     <rect>
-      <x>70</x>
-      <y>30</y>
-      <width>113</width>
-      <height>21</height>
-     </rect>
+     <string>Etat du serveur : Allume</string>
     </property>
    </widget>
   </widget>

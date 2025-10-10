@@ -3,6 +3,7 @@
 #include <QtWidgets/QMainWindow>
 #include "ui_TP8serveur.h"
 #include "qtcpserver.h"
+#include "qtcpsocket.h"
 
 class TP8serveur : public QMainWindow
 {
@@ -14,8 +15,11 @@ public:
 
 private:
     Ui::TP8serveurClass ui;
+    QTcpServer* server;
 
-private slots:
-    
+public slots:
+    void onServerNewConnection();
+    void onClientDisconnected();
+    void onClientReadyRead();
 };
 
