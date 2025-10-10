@@ -2,6 +2,7 @@
 
 #include <QtWidgets/QMainWindow>
 #include "ui_TP8serveur.h"
+#include "qtcpserver.h"
 
 class TP8serveur : public QMainWindow
 {
@@ -13,5 +14,8 @@ public:
 
 private:
     Ui::TP8serveurClass ui;
+
+private slots:
+    
 };
 
