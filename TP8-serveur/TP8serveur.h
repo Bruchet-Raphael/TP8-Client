@@ -16,6 +16,7 @@ public:
 private:
     Ui::TP8serveurClass ui;
     QTcpServer* server;
+    QTcpSocket* socket;
 
 public slots:
     void onServerNewConnection();
